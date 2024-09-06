@@ -1,0 +1,15 @@
+user_srv:
+  ip: '192.168.5.1'
+  port: 8088
+  name: 'user-srv'
+
+jwt:
+  key: 'r90jmheDfJEyx3#aPE#>!=s)*!Kbhl8k'
+
+redis:
+  host: '127.0.0.1'
+  port: 6379
+
+consul:
+  host: '192.168.5.1'
+  port: '8500'

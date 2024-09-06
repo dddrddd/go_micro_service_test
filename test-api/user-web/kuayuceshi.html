@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+</head>
+<body>
+    <button type="button" id="query">请求数据</button>
+    <div id="content" style="background-color: aliceblue;width: 300px;height: 500px"></div>
+</body>
+<script type="text/javascript">
+    $('#query').click(function (){
+        $.ajax(
+            {
+                url :"http://127.0.0.1:8080/api/user/list",
+                dataType:"json",
+                type:"get",
+                beforeSend:function (request){
+                  request.setRequestHeader("x-token","eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJJRCI6MSwiTmlja25hbWUiOiJib2JieTAiLCJBdXRob3JpdHlJZCI6MSwiZXhwIjoxNzIzODA1MjI3LCJpc3MiOiJnby1sZWFybiIsIm5iZiI6MTcyMzIwMDQyN30.pWEb4iFix5-RJG_wt-XxtU8vS236nw9pFX52gNjXlUM")
+                },//这里加了查询x-token变成了非简单请求，会先发options方法，就需要解决跨域问题，用cors中间件就能解决
+                success:function (result){
+                    console.log(result.data)
+                    $("#content").text(result.data)
+                },
+                error:function (data){
+                    alert("请求出错")
+                }
+            }
+        );
+    });
+</script>
+</html>
