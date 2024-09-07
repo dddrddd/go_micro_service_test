@@ -10,6 +10,7 @@ import (
 var (
 	ServerConfig *config.ServerConfig
 	Trans        ut.Translator
+	NacosConfig  *config.NacosConfig
 
 	UserSrvClient proto.UserClient
 )
