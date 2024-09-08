@@ -8,12 +8,12 @@ import (
 	"gorm.io/gorm/schema"
 	"log"
 	"os"
-	"test-service/user_srv/global"
+	"test-service/goods_srv/global"
 	"time"
 )
 
 func InitDB() {
-	//dsn := "root:yujingpig@tcp(127.0.0.1:3306)/user_srv?charset=utf8mb4&parseTime=True&loc=Local"
+	//dsn := "root:yujingpig@tcp(127.0.0.1:3306)/mxshop_goods_srv?charset=utf8mb4&parseTime=True&loc=Local"
 	c := global.ServiceConfig.MysqlInfo
 	dsn := fmt.Sprintf("%s:%s@tcp(%s:%d)/%s?charset=utf8mb4&parseTime=True&loc=Local",
 		c.User, c.Password, c.Host, c.Port, c.Name)
