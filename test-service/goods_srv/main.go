@@ -35,7 +35,7 @@ func main() {
 	zap.S().Info("ip:", *IP, "port:", *Port)
 
 	server := grpc.NewServer()
-	proto.RegisterUserServer(server, &handler.UserServer{})
+	proto.RegisterGoodsServer(server, &handler.GoodsServer{})
 	lis, err := net.Listen("tcp", fmt.Sprintf("%s:%d", *IP, *Port))
 	if err != nil {
 		panic("failed to listen" + err.Error())
@@ -64,7 +64,7 @@ func main() {
 	//启动服务需要通过terminal
 
 	registration.Port = *Port
-	registration.Tags = []string{"user-srv"}
+	registration.Tags = []string{"goods-srv"}
 	registration.Address = "192.168.5.1"
 	registration.Check = check
 
