@@ -4,17 +4,11 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d3b2fd96-b9ee-429c-bcd2-d7174ec17ba4" name="更改" comment="">
-      <change afterPath="$PROJECT_DIR$/test-service/goods_srv/handler/base.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.name" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/go_micro_service_test.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/go_micro_service_test.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sqlDataSources.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test-service/goods_srv/handler/brands.go" beforeDir="false" afterPath="$PROJECT_DIR$/test-service/goods_srv/handler/brands.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test-service/goods_srv/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/test-service/goods_srv/main.go" afterDir="false" />
+    <list default="true" id="d3b2fd96-b9ee-429c-bcd2-d7174ec17ba4" name="更改" comment="电商服务2">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-service/goods_srv/handler/category.go" beforeDir="false" afterPath="$PROJECT_DIR$/test-service/goods_srv/handler/category.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-service/goods_srv/handler/category_brand.go" beforeDir="false" afterPath="$PROJECT_DIR$/test-service/goods_srv/handler/category_brand.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-service/goods_srv/model/goods.go" beforeDir="false" afterPath="$PROJECT_DIR$/test-service/goods_srv/model/goods.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -85,6 +79,10 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="应用程序级" UseSingleDictionary="true" transferred="true" />
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="电商服务2" />
+    <option name="LAST_COMMIT_MESSAGE" value="电商服务2" />
   </component>
   <component name="VgoProject">
     <settings-migrated>true</settings-migrated>

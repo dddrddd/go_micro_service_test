@@ -2,11 +2,12 @@ package model
 
 type Category struct {
 	BaseModel
-	Name             string `gorm:"type:varchar(255);not null"`
-	Level            int32  `gorm:"type:int;not null;default:1;comment:'共三级'"`
-	IsTab            bool   `gorm:"not null;default:false"`
-	ParentCategoryID int32
+	Name             string `gorm:"type:varchar(255);not null" json:"name"`
+	Level            int32  `gorm:"type:int;not null;default:1;comment:'共三级'" json:"level"`
+	IsTab            bool   `gorm:"not null;default:false" json:"is_tab"`
+	ParentCategoryID int32  `json:"parent"`
 	ParentCategory   *Category
+	SubCategory      []*Category `gorm:"foreignKey:ParentCategoryID;references:ID" json:"sub_category"` //这样设置可以预加载，方便子目录的查询
 }
 
 type Brands struct {
