@@ -14,12 +14,162 @@ type GoodsServer struct {
 	proto.UnimplementedGoodsServer
 }
 
-// func (s *GoodsServer) GoodsList(c context.Context, req *proto.GoodsFilterRequest) (*proto.GoodsListResponse, error) {
-//
-// }
-// func (s *GoodsServer) BatchGetGoods(c context.Context, req *proto.BatchGoodsIdInfo) (*proto.GoodsListResponse, error) {
-//
-// }
+func (s *GoodsServer) GoodsList(c context.Context, req *proto.GoodsFilterRequest) (*proto.GoodsListResponse, error) {
+	goodsListResponse := &proto.GoodsListResponse{}
+	var goods []model.Goods
+	query := global.DB.Model(&model.Goods{})
+	if req.KeyWords != "" {
+		query = query.Where("name LIKE ?", "%"+req.KeyWords+"%")
+	}
+	if req.IsHot {
+		query = query.Where("is_hot = true")
+	}
+	if req.IsNew {
+		query = query.Where("is_new = true")
+	}
+	if req.PriceMin > 0 {
+		query = query.Where("shop_price >= ?", req.PriceMin)
+	}
+	if req.PriceMax > 0 {
+		query = query.Where("shop_price <= ?", req.PriceMax)
+	}
+	if req.Brand != 0 {
+		query = query.Where("brand = ?", req.Brand)
+	}
+
+	if req.TopCategory != 0 {
+		var category model.Category
+		if result := global.DB.First(&category, req.TopCategory); result.Error != nil {
+			return nil, status.Errorf(codes.NotFound, "商品分类不存在")
+		}
+		switch category.Level {
+		case 1:
+			query1 := global.DB.Model(&model.Category{}).Select("id").Where("parent_category_id = ?", req.TopCategory)
+			query = query.Where("category_id IN (?)", query1)
+		case 2:
+			query1 := global.DB.Model(&model.Category{}).Select("id").Where("parent_category_id = ?", req.TopCategory)
+			query = query.Where("category_id IN (?)", query1)
+		case 3:
+			query = query.Where("category_id = ?", req.TopCategory)
+		}
+	}
+
+	var count int64
+	query.Count(&count)
+	goodsListResponse.Total = int32(count)
+	result := query.Preload("Category").Preload("Brands").Scopes(Paginate(int(req.Pages), int(req.PagePerNums))).Find(&goods)
+	if result.Error != nil {
+		return nil, result.Error
+	}
+	for _, good := range goods {
+		GoodsInfoResponse := &proto.GoodsInfoResponse{
+			Id:              good.ID,
+			CategoryId:      good.CategoryID,
+			Name:            good.Name,
+			GoodsSn:         good.GoodsSn,
+			ClickNum:        good.ClickNum,
+			SoldNum:         good.SoldNum,
+			FavNum:          good.FavNum,
+			MarketPrice:     good.MarketPrice,
+			ShopPrice:       good.ShopPrice,
+			GoodsBrief:      good.GoodsBrief,
+			ShipFree:        good.ShipFree,
+			Images:          good.Images,
+			DescImages:      good.DescImages,
+			GoodsFrontImage: good.GoodsFrontImage,
+			IsNew:           good.IsNew,
+			IsHot:           good.IsHot,
+			OnSale:          good.OnSale,
+			Category: &proto.CategoryBriefInfoResponse{
+				Id:   good.Category.ID,
+				Name: good.Category.Name,
+			},
+			Brand: &proto.BrandInfoResponse{
+				Id:   good.Brands.ID,
+				Name: good.Brands.Name,
+				Logo: good.Brands.Logo,
+			},
+		}
+		goodsListResponse.Data = append(goodsListResponse.Data, GoodsInfoResponse)
+	}
+	return goodsListResponse, nil
+}
+
+func (s *GoodsServer) BatchGetGoods(c context.Context, req *proto.BatchGoodsIdInfo) (*proto.GoodsListResponse, error) {
+	goodsListResponse := &proto.GoodsListResponse{}
+	var goods []model.Goods
+	result := global.DB.Where(req.Id).Find(&goods)
+	for _, good := range goods {
+		GoodsInfoResponse := &proto.GoodsInfoResponse{
+			Id:              good.ID,
+			CategoryId:      good.CategoryID,
+			Name:            good.Name,
+			GoodsSn:         good.GoodsSn,
+			ClickNum:        good.ClickNum,
+			SoldNum:         good.SoldNum,
+			FavNum:          good.FavNum,
+			MarketPrice:     good.MarketPrice,
+			ShopPrice:       good.ShopPrice,
+			GoodsBrief:      good.GoodsBrief,
+			ShipFree:        good.ShipFree,
+			Images:          good.Images,
+			DescImages:      good.DescImages,
+			GoodsFrontImage: good.GoodsFrontImage,
+			IsNew:           good.IsNew,
+			IsHot:           good.IsHot,
+			OnSale:          good.OnSale,
+			Category: &proto.CategoryBriefInfoResponse{
+				Id:   good.Category.ID,
+				Name: good.Category.Name,
+			},
+			Brand: &proto.BrandInfoResponse{
+				Id:   good.Brands.ID,
+				Name: good.Brands.Name,
+				Logo: good.Brands.Logo,
+			},
+		}
+		goodsListResponse.Data = append(goodsListResponse.Data, GoodsInfoResponse)
+	}
+	goodsListResponse.Total = int32(result.RowsAffected)
+	return goodsListResponse, nil
+}
+
+func (s *GoodsServer) GetGoodsDetail(c context.Context, req *proto.GoodInfoRequest) (*proto.GoodsInfoResponse, error) {
+	var good model.Goods
+	if result := global.DB.First(&good, req.Id); result.RowsAffected == 0 {
+		return nil, status.Errorf(codes.NotFound, "商品不存在")
+	}
+	goodsInfoResponse := &proto.GoodsInfoResponse{
+		Id:              good.ID,
+		CategoryId:      good.CategoryID,
+		Name:            good.Name,
+		GoodsSn:         good.GoodsSn,
+		ClickNum:        good.ClickNum,
+		SoldNum:         good.SoldNum,
+		FavNum:          good.FavNum,
+		MarketPrice:     good.MarketPrice,
+		ShopPrice:       good.ShopPrice,
+		GoodsBrief:      good.GoodsBrief,
+		ShipFree:        good.ShipFree,
+		Images:          good.Images,
+		DescImages:      good.DescImages,
+		GoodsFrontImage: good.GoodsFrontImage,
+		IsNew:           good.IsNew,
+		IsHot:           good.IsHot,
+		OnSale:          good.OnSale,
+		Category: &proto.CategoryBriefInfoResponse{
+			Id:   good.Category.ID,
+			Name: good.Category.Name,
+		},
+		Brand: &proto.BrandInfoResponse{
+			Id:   good.Brands.ID,
+			Name: good.Brands.Name,
+			Logo: good.Brands.Logo,
+		},
+	}
+	return goodsInfoResponse, nil
+}
+
 func (s *GoodsServer) CreateGoods(c context.Context, req *proto.CreateGoodsInfo) (*proto.GoodsInfoResponse, error) {
 	var category model.Category
 	if result := global.DB.First(&category, req.CategoryId); result.RowsAffected == 0 {
@@ -92,7 +242,3 @@ func (s *GoodsServer) UpdateGoods(c context.Context, req *proto.CreateGoodsInfo)
 	global.DB.Save(&goods)
 	return &emptypb.Empty{}, nil
 }
-
-//func (s *GoodsServer) GetGoodsDetail(c context.Context, req *proto.GoodInfoRequest) (*proto.GoodsInfoResponse, error) {
-//
-//}
