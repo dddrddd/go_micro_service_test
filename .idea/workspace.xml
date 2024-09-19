@@ -4,32 +4,15 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d3b2fd96-b9ee-429c-bcd2-d7174ec17ba4" name="更改" comment="电商服务完结">
-      <change afterPath="$PROJECT_DIR$/test-api/goods-web/api/goods/goods.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test-api/goods-web/config-debug.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test-api/goods-web/config-pro.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test-api/goods-web/config/config.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test-api/goods-web/forms/goods.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test-api/goods-web/global/global.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test-api/goods-web/initialize/config.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test-api/goods-web/initialize/logger.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test-api/goods-web/initialize/router.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test-api/goods-web/initialize/srv_conn.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test-api/goods-web/initialize/validator.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test-api/goods-web/main.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test-api/goods-web/middlewares/admin.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test-api/goods-web/middlewares/cros.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test-api/goods-web/middlewares/jwt.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test-api/goods-web/models/request.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test-api/goods-web/proto/goods.pb.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test-api/goods-web/proto/goods.proto" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test-api/goods-web/proto/goods_grpc.pb.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test-api/goods-web/router/goods.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test-api/goods-web/utils/addr.go" afterDir="false" />
+    <list default="true" id="d3b2fd96-b9ee-429c-bcd2-d7174ec17ba4" name="更改" comment="电商web层1">
+      <change afterPath="$PROJECT_DIR$/test-api/goods-web/utils/register/consul/register.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test-service/goods_srv/handler/goods.go" beforeDir="false" afterPath="$PROJECT_DIR$/test-service/goods_srv/handler/goods.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test-service/goods_srv/model/base.go" beforeDir="false" afterPath="$PROJECT_DIR$/test-service/goods_srv/model/base.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test-service/user_srv/model/user.go" beforeDir="false" afterPath="$PROJECT_DIR$/test-service/user_srv/model/user.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-api/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/test-api/go.mod" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-api/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/test-api/go.sum" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-api/goods-web/api/goods/goods.go" beforeDir="false" afterPath="$PROJECT_DIR$/test-api/goods-web/api/goods/goods.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-api/goods-web/config/config.go" beforeDir="false" afterPath="$PROJECT_DIR$/test-api/goods-web/config/config.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-api/goods-web/initialize/srv_conn.go" beforeDir="false" afterPath="$PROJECT_DIR$/test-api/goods-web/initialize/srv_conn.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-api/goods-web/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/test-api/goods-web/main.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -111,6 +94,14 @@
       <filePath value="$PROJECT_DIR$/test-service/goods_srv/main.go" />
       <method v="2" />
     </configuration>
+    <configuration name="go build register.go" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
+      <module name="go_micro_service_test" />
+      <working_directory value="$PROJECT_DIR$/test-api" />
+      <kind value="FILE" />
+      <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$/test-api/goods-web/utils/register/consul/register.go" />
+      <method v="2" />
+    </configuration>
     <configuration name="go build test-api/goods-web" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
       <module name="go_micro_service_test" />
       <working_directory value="$PROJECT_DIR$/test-api" />
@@ -124,6 +115,7 @@
       <list>
         <item itemvalue="Go 构建.go build main.go (1)" />
         <item itemvalue="Go 构建.go build main.go" />
+        <item itemvalue="Go 构建.go build register.go" />
         <item itemvalue="Go 构建.go build test-api/goods-web" />
       </list>
     </recent_temporary>
@@ -145,7 +137,8 @@
     <MESSAGE value="电商服务2" />
     <MESSAGE value="电商服务3" />
     <MESSAGE value="电商服务完结" />
-    <option name="LAST_COMMIT_MESSAGE" value="电商服务完结" />
+    <MESSAGE value="电商web层1" />
+    <option name="LAST_COMMIT_MESSAGE" value="电商web层1" />
   </component>
   <component name="VgoProject">
     <settings-migrated>true</settings-migrated>

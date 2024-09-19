@@ -12,7 +12,7 @@ import (
 func InitSrvConn() {
 	consulInfo := global.ServerConfig.ConsulInfo
 	userConn, err := grpc.Dial(
-		fmt.Sprintf("consul://%s:%s/%s?wait=14s", consulInfo.Host, consulInfo.Port, global.ServerConfig.GoodsInfo.Name), //这一部分使用了"github.com/mbobakov/grpc-consul-resolver"，固定格式，标签可以参考官方文档
+		fmt.Sprintf("consul://%s:%d/%s?wait=14s", consulInfo.Host, consulInfo.Port, global.ServerConfig.GoodsInfo.Name), //这一部分使用了"github.com/mbobakov/grpc-consul-resolver"，固定格式，标签可以参考官方文档
 		grpc.WithInsecure(),
 		grpc.WithDefaultServiceConfig(`{"loadBalancingPolicy":"round_robin"}`), //这部分也是
 	)
