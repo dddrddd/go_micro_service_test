@@ -1,0 +1,5 @@
+host: '192.168.5.1'
+port: 8848
+namespace: 'd9875670-9296-4774-8ffb-2bbedba8db30'
+dataid: 'goods-web.json'
+group: 'dev'

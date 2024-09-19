@@ -4,8 +4,32 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d3b2fd96-b9ee-429c-bcd2-d7174ec17ba4" name="更改" comment="电商服务3">
+    <list default="true" id="d3b2fd96-b9ee-429c-bcd2-d7174ec17ba4" name="更改" comment="电商服务完结">
+      <change afterPath="$PROJECT_DIR$/test-api/goods-web/api/goods/goods.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test-api/goods-web/config-debug.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test-api/goods-web/config-pro.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test-api/goods-web/config/config.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test-api/goods-web/forms/goods.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test-api/goods-web/global/global.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test-api/goods-web/initialize/config.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test-api/goods-web/initialize/logger.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test-api/goods-web/initialize/router.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test-api/goods-web/initialize/srv_conn.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test-api/goods-web/initialize/validator.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test-api/goods-web/main.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test-api/goods-web/middlewares/admin.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test-api/goods-web/middlewares/cros.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test-api/goods-web/middlewares/jwt.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test-api/goods-web/models/request.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test-api/goods-web/proto/goods.pb.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test-api/goods-web/proto/goods.proto" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test-api/goods-web/proto/goods_grpc.pb.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test-api/goods-web/router/goods.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test-api/goods-web/utils/addr.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-service/goods_srv/handler/goods.go" beforeDir="false" afterPath="$PROJECT_DIR$/test-service/goods_srv/handler/goods.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-service/goods_srv/model/base.go" beforeDir="false" afterPath="$PROJECT_DIR$/test-service/goods_srv/model/base.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-service/user_srv/model/user.go" beforeDir="false" afterPath="$PROJECT_DIR$/test-service/user_srv/model/user.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,14 +52,20 @@
   &quot;associatedIndex&quot;: 0
 }</component>
   <component name="ProjectId" id="2lp5tQ1ZUi2JB2yXWThWgtqUYtz" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
     "DefaultGoTemplateProperty": "Go File",
+    "Go 构建.go build main.go (1).executor": "Run",
     "Go 构建.go build main.go.executor": "Run",
+    "Go 构建.go build test-api/goods-web.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.go.formatter.settings.were.checked": "true",
     "RunOnceActivity.go.migrated.go.modules.settings": "true",
@@ -44,13 +74,35 @@
     "go.import.settings.migrated": "true",
     "go.sdk.automatically.set": "true",
     "ignore.virus.scanning.warn.message": "true",
-    "last_opened_file_path": "D:/go-learn/go_micro_service_test",
+    "last_opened_file_path": "D:/go-learn/go_micro_service_test/test-api/goods-web/proto",
     "node.js.detected.package.eslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "nodejs_package_manager_path": "npm"
+  },
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "mysql"
+    ]
   }
 }]]></component>
-  <component name="RunManager">
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\go-learn\go_micro_service_test\test-api\goods-web\proto" />
+      <recent name="D:\go-learn\go_micro_service_test\test-api" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\go-learn\go_micro_service_test\test-api\goods-web\api\goods" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Go 构建.go build main.go (1)">
+    <configuration name="go build main.go (1)" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
+      <module name="go_micro_service_test" />
+      <working_directory value="$PROJECT_DIR$/test-api" />
+      <kind value="FILE" />
+      <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$/test-api/goods-web/main.go" />
+      <method v="2" />
+    </configuration>
     <configuration name="go build main.go" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
       <module name="go_micro_service_test" />
       <working_directory value="$PROJECT_DIR$/test-service" />
@@ -59,9 +111,20 @@
       <filePath value="$PROJECT_DIR$/test-service/goods_srv/main.go" />
       <method v="2" />
     </configuration>
+    <configuration name="go build test-api/goods-web" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
+      <module name="go_micro_service_test" />
+      <working_directory value="$PROJECT_DIR$/test-api" />
+      <kind value="PACKAGE" />
+      <package value="test-api/goods-web" />
+      <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$/test-api/goods-web/main.go" />
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Go 构建.go build main.go (1)" />
         <item itemvalue="Go 构建.go build main.go" />
+        <item itemvalue="Go 构建.go build test-api/goods-web" />
       </list>
     </recent_temporary>
   </component>
@@ -78,9 +141,11 @@
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="电商服务2" />
     <MESSAGE value="电商服务3" />
-    <option name="LAST_COMMIT_MESSAGE" value="电商服务3" />
+    <MESSAGE value="电商服务完结" />
+    <option name="LAST_COMMIT_MESSAGE" value="电商服务完结" />
   </component>
   <component name="VgoProject">
     <settings-migrated>true</settings-migrated>

@@ -34,7 +34,7 @@ func (s *GoodsServer) GoodsList(c context.Context, req *proto.GoodsFilterRequest
 		query = query.Where("shop_price <= ?", req.PriceMax)
 	}
 	if req.Brand != 0 {
-		query = query.Where("brand = ?", req.Brand)
+		query = query.Where("brand_id = ?", req.Brand)
 	}
 
 	if req.TopCategory != 0 {

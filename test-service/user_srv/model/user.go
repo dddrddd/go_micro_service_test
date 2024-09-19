@@ -1,16 +1,15 @@
 package model
 
 import (
-	"gorm.io/gorm"
 	"time"
 )
 
 type BaseModel struct {
-	ID        int32          `gorm:"primary_key"`
-	CreatedAt time.Time      `gorm:"column:add_time"`
-	UpdatedAt time.Time      `gorm:"column:update_time"`
-	DeletedAt gorm.DeletedAt //表示软删除
-	IsDeleted bool           //第二种方法
+	ID        int32     `gorm:"primary_key"`
+	CreatedAt time.Time `gorm:"column:add_time"`
+	UpdatedAt time.Time `gorm:"column:update_time"`
+	//DeletedAt gorm.DeletedAt //表示软删除
+	IsDeleted bool //第二种方法
 }
 
 // User 密码需要加密，一般用md5算法
