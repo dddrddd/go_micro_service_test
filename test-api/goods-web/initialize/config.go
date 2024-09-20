@@ -11,7 +11,6 @@ import (
 	"test-api/goods-web/global"
 )
 
-// 可以获取环境变量
 func GetEnvInfo(env string) bool {
 	viper.AutomaticEnv()
 	return viper.GetBool(env)

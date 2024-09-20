@@ -203,21 +203,26 @@ func (s *GoodsServer) CreateGoods(c context.Context, req *proto.CreateGoodsInfo)
 	}, nil
 }
 func (s *GoodsServer) DeleteGoods(c context.Context, req *proto.DeleteGoodsInfo) (*emptypb.Empty, error) {
-	if result := global.DB.Delete(&model.Brands{}, req.Id); result.RowsAffected == 0 {
+	if result := global.DB.Delete(&model.Goods{}, req.Id); result.RowsAffected == 0 {
 		return nil, status.Errorf(codes.NotFound, "商品不存在")
 	}
 	return &emptypb.Empty{}, nil
 }
 func (s *GoodsServer) UpdateGoods(c context.Context, req *proto.CreateGoodsInfo) (*emptypb.Empty, error) {
 	var category model.Category
-	if result := global.DB.First(&category, req.CategoryId); result.RowsAffected == 0 {
-		return nil, status.Errorf(codes.InvalidArgument, "商品分类不存在")
+	if req.CategoryId != 0 {
+		if result := global.DB.First(&category, req.CategoryId); result.RowsAffected == 0 {
+			return nil, status.Errorf(codes.InvalidArgument, "商品分类不存在")
+		}
 	}
 
 	var brand model.Brands
-	if result := global.DB.First(&brand, req.BrandId); result.RowsAffected == 0 {
-		return nil, status.Errorf(codes.InvalidArgument, "品牌不存在")
+	if req.BrandId != 0 {
+		if result := global.DB.First(&brand, req.BrandId); result.RowsAffected == 0 {
+			return nil, status.Errorf(codes.InvalidArgument, "品牌不存在")
+		}
 	}
+
 	var goods model.Goods
 	if result := global.DB.First(&goods, req.Id); result.RowsAffected == 0 {
 		return nil, status.Errorf(codes.InvalidArgument, "商品不存在")

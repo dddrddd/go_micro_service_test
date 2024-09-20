@@ -17,10 +17,13 @@ type RedisConfig struct {
 
 type ConsulConfig struct {
 	Host string `mapstructure:"host" json:"host"`
-	Port string `mapstructure:"port" json:"port"`
+	Port int    `mapstructure:"port" json:"port"`
 }
 
 type ServerConfig struct {
+	Name       string        `mapstructure:"name" json:"name"`
+	Host       string        `mapstructure:"host" json:"host"`
+	Tags       []string      `mapstructure:"tags" json:"tags"`
 	UserInfo   UserSrvConfig `mapstructure:"user_srv" json:"user_srv"`
 	JWT        JWTConfig     `mapstructure:"jwt" json:"JWT"`
 	Redis      RedisConfig   `mapstructure:"redis" json:"redis"`

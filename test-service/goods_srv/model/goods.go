@@ -7,6 +7,7 @@ type Category struct {
 	IsTab            bool   `gorm:"not null;default:false" json:"is_tab"`
 	ParentCategoryID int32  `json:"parent"`
 	ParentCategory   *Category
+	Url              string      `gorm:"type:varchar(255);default:''" json:"url"`
 	SubCategory      []*Category `gorm:"foreignKey:ParentCategoryID;references:ID" json:"sub_category"` //这样设置可以预加载，方便子目录的查询
 }
 
@@ -43,6 +44,7 @@ type Goods struct {
 	IsNew    bool `gorm:"not null;default:false"`
 	IsHot    bool `gorm:"not null;default:false"`
 
+	Stocks          int      `gorm:"not null;default:0"`
 	Name            string   `gorm:"type:varchar(255);not null"`
 	GoodsSn         string   `gorm:"type:varchar(255);not null;commit:'商品编号'"`
 	ClickNum        int32    `gorm:"type:int;not null;default:0"`

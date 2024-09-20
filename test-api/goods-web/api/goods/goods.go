@@ -10,6 +10,7 @@ import (
 	"net/http"
 	"strconv"
 	"strings"
+	"test-api/goods-web/forms"
 	"test-api/goods-web/global"
 	"test-api/goods-web/proto"
 )
@@ -129,7 +130,7 @@ func List(c *gin.Context) {
 			"desc_images":  value.DescImages,
 			"front_images": value.GoodsFrontImage,
 			"shop_price":   value.ShopPrice,
-			"ctegory": map[string]interface{}{
+			"category": map[string]interface{}{
 				"id":   value.Category.Id,
 				"name": value.Category.Name,
 			},
@@ -145,4 +146,163 @@ func List(c *gin.Context) {
 	}
 	reMap["data"] = goodsList
 	c.JSON(http.StatusOK, reMap)
+}
+func New(c *gin.Context) {
+	goodsForm := forms.GoodsForm{}
+	if err := c.ShouldBindJSON(&goodsForm); err != nil {
+		HandleValidatorError(c, err)
+		return
+	}
+	goodsClient := global.GoodsSrvClient
+	rsp, err := goodsClient.CreateGoods(context.Background(), &proto.CreateGoodsInfo{
+		Name:            goodsForm.Name,
+		GoodsSn:         goodsForm.GoodsSn,
+		Stocks:          goodsForm.Stocks,
+		MarketPrice:     goodsForm.MarketPrice,
+		ShopPrice:       goodsForm.ShopPrice,
+		GoodsBrief:      goodsForm.GoodsBrief,
+		ShipFree:        *goodsForm.ShipFree,
+		Images:          goodsForm.Images,
+		DescImages:      goodsForm.DescImages,
+		GoodsFrontImage: goodsForm.FrontImage,
+		CategoryId:      goodsForm.CategoryId,
+		BrandId:         goodsForm.Brand,
+	})
+	if err != nil {
+		HandleGrpcErrorToHttp(err, c)
+		return
+	}
+	//如何设置库存
+	//todo 商品的库存 分布式事务
+	c.JSON(http.StatusOK, rsp)
+	return
+}
+func Detail(c *gin.Context) {
+	id := c.Query("id")
+	i, err := strconv.ParseInt(id, 10, 32)
+	if err != nil {
+		c.Status(http.StatusNotFound)
+		return
+	}
+	r, err := global.GoodsSrvClient.GetGoodsDetail(context.Background(), &proto.GoodInfoRequest{
+		Id: int32(i),
+	})
+	if err != nil {
+		HandleGrpcErrorToHttp(err, c)
+	}
+
+	rsp := map[string]interface{}{
+		"id":           r.Id,
+		"name":         r.Name,
+		"goods_brief":  r.GoodsBrief,
+		"desc":         r.GoodsDesc,
+		"ship_free":    r.ShipFree,
+		"images":       r.Images,
+		"desc_images":  r.DescImages,
+		"front_images": r.GoodsFrontImage,
+		"shop_price":   r.ShopPrice,
+		"category": map[string]interface{}{
+			"id":   r.Category.Id,
+			"name": r.Category.Name,
+		},
+		"brand": map[string]interface{}{
+			"id":   r.Brand.Id,
+			"name": r.Brand.Name,
+			"logo": r.Brand.Logo,
+		},
+		"is_hot":  r.IsHot,
+		"is_new":  r.IsNew,
+		"on_sale": r.OnSale,
+	}
+	c.JSON(http.StatusOK, rsp)
+}
+func Delete(c *gin.Context) {
+	goodsClient := global.GoodsSrvClient
+	id := c.Query("id")
+	i, err := strconv.ParseInt(id, 10, 32)
+	if err != nil {
+		c.Status(http.StatusNotFound)
+		return
+	}
+	_, err = goodsClient.DeleteGoods(context.Background(), &proto.DeleteGoodsInfo{
+		Id: int32(i),
+	})
+	if err != nil {
+		HandleGrpcErrorToHttp(err, c)
+	}
+	c.JSON(http.StatusOK, gin.H{
+		"msg": "删除成功",
+	})
+	return
+}
+
+func UpdateStatus(c *gin.Context) {
+	goodsClient := global.GoodsSrvClient
+	goodsForm := forms.GoodsStatusForm{}
+	if err := c.ShouldBindJSON(&goodsForm); err != nil {
+		HandleValidatorError(c, err)
+		return
+	}
+
+	id := c.Param("id")
+	i, err := strconv.ParseInt(id, 10, 64)
+	_, err = goodsClient.UpdateGoods(context.Background(), &proto.CreateGoodsInfo{
+		Id:     int32(i),
+		IsHot:  *goodsForm.IsHot,
+		IsNew:  *goodsForm.IsNew,
+		OnSale: *goodsForm.OnSale,
+	})
+	if err != nil {
+		HandleGrpcErrorToHttp(err, c)
+		return
+	}
+	c.JSON(http.StatusOK, gin.H{
+		"msg": "修改成功",
+	})
+	return
+}
+
+func Update(c *gin.Context) {
+	goodsClient := global.GoodsSrvClient
+	goodsForm := forms.GoodsForm{}
+	if err := c.ShouldBindJSON(&goodsForm); err != nil {
+		HandleValidatorError(c, err)
+		return
+	}
+	id := c.Param("id")
+	i, err := strconv.ParseInt(id, 10, 32)
+	_, err = goodsClient.UpdateGoods(context.Background(), &proto.CreateGoodsInfo{
+		Id:              int32(i),
+		Name:            goodsForm.Name,
+		GoodsSn:         goodsForm.GoodsSn,
+		Stocks:          goodsForm.Stocks,
+		MarketPrice:     goodsForm.MarketPrice,
+		ShopPrice:       goodsForm.ShopPrice,
+		GoodsBrief:      goodsForm.GoodsBrief,
+		ShipFree:        *goodsForm.ShipFree,
+		Images:          goodsForm.Images,
+		DescImages:      goodsForm.DescImages,
+		GoodsFrontImage: goodsForm.FrontImage,
+		CategoryId:      goodsForm.CategoryId,
+		BrandId:         goodsForm.Brand,
+	})
+	if err != nil {
+		HandleGrpcErrorToHttp(err, c)
+		return
+	}
+	c.JSON(http.StatusOK, gin.H{
+		"msg": "更新成功",
+	})
+	return
+}
+
+func Stocks(c *gin.Context) {
+	id := c.Query("id")
+	_, err := strconv.ParseInt(id, 10, 32)
+	if err != nil {
+		c.Status(http.StatusNotFound)
+		return
+	}
+	//todo 商品的库存
+	return
 }

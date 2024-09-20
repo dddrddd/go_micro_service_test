@@ -1,5 +1,5 @@
 host: '192.168.5.1'
 port: 8848
 namespace: '819f34b7-dbc3-4f43-b03a-3a8987cbb2fd'
-dataid: 'user-srv.json'
+dataid: 'user_srv.json'
 group: 'dev'

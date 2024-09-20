@@ -8,6 +8,9 @@ import (
 
 func Routers() *gin.Engine {
 	Router := gin.Default()
+	Router.GET("/health", func(c *gin.Context) {
+		c.String(200, "OK")
+	})
 	Router.Use(middlewares.Cors())
 	ApiGroup := Router.Group("/v1")
 	router2.InitUserRouter(ApiGroup)
