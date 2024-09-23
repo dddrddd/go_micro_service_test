@@ -35,18 +35,23 @@ func (s *GoodsServer) CreateBanner(c context.Context, req *proto.BannerRequest) 
 		Url:   req.Url,
 	}
 	global.DB.Create(banner)
-	return &proto.BannerResponse{Id: banner.ID}, nil
+	return &proto.BannerResponse{
+		Id:    banner.ID,
+		Image: banner.Image,
+		Index: banner.Index,
+		Url:   banner.Url,
+	}, nil
 }
 func (s *GoodsServer) DeleteBanner(c context.Context, req *proto.BannerRequest) (*emptypb.Empty, error) {
 	if result := global.DB.Delete(&model.Banner{}, req.Id); result.RowsAffected == 0 {
-		return nil, status.Error(codes.NotFound, "品牌不存在")
+		return nil, status.Error(codes.NotFound, "轮播图不存在")
 	}
 	return &emptypb.Empty{}, nil
 }
 func (s *GoodsServer) UpdateBanner(c context.Context, req *proto.BannerRequest) (*emptypb.Empty, error) {
 	banner := &model.Banner{}
-	if result := global.DB.Delete(&model.Banner{}, req.Id); result.RowsAffected == 0 {
-		return nil, status.Error(codes.NotFound, "品牌不存在")
+	if result := global.DB.First(&banner, req.Id); result.RowsAffected == 0 {
+		return nil, status.Error(codes.NotFound, "轮播图不存在")
 	}
 	if req.Image != "" {
 		banner.Image = req.Image

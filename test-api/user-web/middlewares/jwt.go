@@ -5,8 +5,8 @@ import (
 	"github.com/gin-gonic/gin"
 	"github.com/golang-jwt/jwt/v4"
 	"net/http"
-	"test-api/goods-web/global"
-	"test-api/goods-web/models"
+	"test-api/user-web/global"
+	"test-api/user-web/models"
 	"time"
 )
 

@@ -62,7 +62,13 @@ func (s *GoodsServer) CreateCategory(c context.Context, req *proto.CategoryInfoR
 	}
 	category.IsTab = req.IsTab
 	global.DB.Create(&category)
-	return &proto.CategoryInfoResponse{Id: int32(category.ID)}, nil
+	return &proto.CategoryInfoResponse{
+		Id:             category.ID,
+		Name:           category.Name,
+		Level:          category.Level,
+		IsTab:          category.IsTab,
+		ParentCategory: category.ParentCategoryID,
+	}, nil
 }
 func (s *GoodsServer) DeleteCategory(c context.Context, req *proto.DeleteCategoryRequest) (*emptypb.Empty, error) {
 	if result := global.DB.Delete(&model.Category{}, req.Id); result.RowsAffected == 0 {
