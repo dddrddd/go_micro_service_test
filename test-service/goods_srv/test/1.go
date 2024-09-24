@@ -8,21 +8,12 @@ import (
 )
 
 func main() {
-	ss := &proto.CreateGoodsInfo{
-		Name:            "cjt",
-		ShopPrice:       20.5,
-		GoodsBrief:      "safsaf",
-		ShipFree:        false,
-		GoodsFrontImage: "telnet://gdoysjym.travel/nqmxsiinj",
-		Stocks:          100,
-		MarketPrice:     20.5,
-		GoodsSn:         "JZW4WhF",
-		CategoryId:      135476,
-		BrandId:         624,
-		Images:          []string{"https://www.baidu.com"},
-		DescImages:      []string{"news://edlftux.ie/ecufrll"},
+	ss := &proto.CategoryBrandRequest{
+		Id:         25799,
+		CategoryId: 130366,
+		BrandId:    614,
 	}
 	var t *handler.GoodsServer
-	rsp, _ := t.CreateGoods(context.Background(), ss)
-	fmt.Println(rsp)
+	rsp, err := t.UpdateCategoryBrand(context.Background(), ss)
+	fmt.Println(rsp, err)
 }

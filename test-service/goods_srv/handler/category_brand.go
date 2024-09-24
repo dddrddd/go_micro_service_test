@@ -40,13 +40,12 @@ func (s *GoodsServer) CategoryBrandList(c context.Context, req *proto.CategoryBr
 }
 func (s *GoodsServer) GetCateGoryBrandList(c context.Context, req *proto.CategoryInfoRequest) (*proto.BrandListResponse, error) {
 	brandListResponse := &proto.BrandListResponse{}
-
 	var category model.Category
-	if result := global.DB.Preload("Brands").Find(&category, req.Id).First(&category); result.RowsAffected == 0 {
-		return nil, status.Errorf(codes.InvalidArgument, "品牌分类不存在")
+	if result := global.DB.First(&category, req.Id); result.Error != nil {
+		return nil, status.Errorf(codes.InvalidArgument, "商品分类不存在: %v", result.Error)
 	}
 	var categoyBrands []model.GoodsCategoryBrand
-	if result := global.DB.Where(&model.GoodsCategoryBrand{CategoryID: category.ID}).Find(&categoyBrands); result.RowsAffected > 0 {
+	if result := global.DB.Preload("Brands").Where(&model.GoodsCategoryBrand{CategoryID: category.ID}).Find(&categoyBrands); result.RowsAffected > 0 {
 		brandListResponse.Total = int32(result.RowsAffected)
 	}
 
@@ -70,11 +69,18 @@ func (s *GoodsServer) CreateCategoryBrand(c context.Context, req *proto.Category
 	if result := global.DB.First(&brand, req.BrandId); result.RowsAffected == 0 {
 		return nil, status.Errorf(codes.InvalidArgument, "品牌不存在")
 	}
+	var existingCategoryBrand model.GoodsCategoryBrand
+	if result := global.DB.Where("category_id = ? AND brand_id = ?", req.CategoryId, req.BrandId).First(&existingCategoryBrand); result.Error == nil {
+		return nil, status.Error(codes.InvalidArgument, "品牌分类已存在")
+	}
+
 	categoryBrand := model.GoodsCategoryBrand{
 		CategoryID: req.CategoryId,
 		BrandID:    req.BrandId,
 	}
-	global.DB.Create(&categoryBrand)
+	if err := global.DB.Create(&categoryBrand).Error; err != nil {
+		return nil, status.Errorf(codes.Internal, "创建品牌分类失败: %v", err)
+	}
 	return &proto.CategoryBrandResponse{Id: categoryBrand.ID}, nil
 }
 func (s *GoodsServer) DeleteCategoryBrand(c context.Context, req *proto.CategoryBrandRequest) (*emptypb.Empty, error) {

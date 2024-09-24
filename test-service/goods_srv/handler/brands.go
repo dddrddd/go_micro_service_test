@@ -34,17 +34,21 @@ func (s *GoodsServer) BrandList(c context.Context, req *proto.BrandFilterRequest
 }
 
 func (s *GoodsServer) CreateBrand(c context.Context, req *proto.BrandRequest) (*proto.BrandInfoResponse, error) {
-	if result := global.DB.First(&model.Brands{}); result.RowsAffected == 1 {
+
+	if result := global.DB.Where("name = ?", req.Name); result.RowsAffected == 1 {
 		return nil, status.Error(codes.InvalidArgument, "品牌已存在")
 	}
 	brand := &model.Brands{
 		Name: req.Name,
 		Logo: req.Logo,
 	}
-
 	global.DB.Create(brand)
 
-	return &proto.BrandInfoResponse{Id: brand.ID}, nil
+	return &proto.BrandInfoResponse{
+		Id:   brand.ID,
+		Name: brand.Name,
+		Logo: brand.Logo,
+	}, nil
 }
 
 func (s *GoodsServer) DeleteBrand(c context.Context, req *proto.BrandRequest) (*emptypb.Empty, error) {
