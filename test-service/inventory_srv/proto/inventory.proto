@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+import "google/protobuf/empty.proto";
+option go_package =  ".;proto";
+
+package template;
+
+service Inventory{
+  rpc SetInv(GoodsInvInfo) returns(google.protobuf.Empty);
+  rpc InvDetail(GoodsInvInfo) returns(GoodsInvInfo);
+  rpc Sell(SellInfo) returns(google.protobuf.Empty);
+  rpc Reback(SellInfo) returns(google.protobuf.Empty);
+}
+
+message GoodsInvInfo{
+  int32 goodsId = 1;
+  int32 number = 2;
+}
+
+message SellInfo{
+  repeated GoodsInvInfo goodsInfo = 1;
+}

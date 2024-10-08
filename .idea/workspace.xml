@@ -4,15 +4,26 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d3b2fd96-b9ee-429c-bcd2-d7174ec17ba4" name="更改" comment="电商web层3+修改">
-      <change afterPath="$PROJECT_DIR$/test-api/goods-web/api/brands/brands.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test-api/goods-web/forms/brands.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test-api/goods-web/router/brands.go" afterDir="false" />
+    <list default="true" id="d3b2fd96-b9ee-429c-bcd2-d7174ec17ba4" name="更改" comment="电商商品web层4+修改">
+      <change afterPath="$PROJECT_DIR$/test-service/inventory_srv/config-debug.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test-service/inventory_srv/config-pro.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test-service/inventory_srv/config/config.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test-service/inventory_srv/global/global.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test-service/inventory_srv/handler/inventory.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test-service/inventory_srv/initialize/config.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test-service/inventory_srv/initialize/db.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test-service/inventory_srv/initialize/logger.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test-service/inventory_srv/main.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test-service/inventory_srv/model/base.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test-service/inventory_srv/model/inventory.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test-service/inventory_srv/model/main/main.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test-service/inventory_srv/proto/inventory.pb.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test-service/inventory_srv/proto/inventory.proto" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test-service/inventory_srv/proto/inventory_grpc.pb.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test-service/inventory_srv/utils/addr.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test-api/goods-web/initialize/router.go" beforeDir="false" afterPath="$PROJECT_DIR$/test-api/goods-web/initialize/router.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test-service/goods_srv/handler/brands.go" beforeDir="false" afterPath="$PROJECT_DIR$/test-service/goods_srv/handler/brands.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test-service/goods_srv/handler/category_brand.go" beforeDir="false" afterPath="$PROJECT_DIR$/test-service/goods_srv/handler/category_brand.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test-service/goods_srv/test/1.go" beforeDir="false" afterPath="$PROJECT_DIR$/test-service/goods_srv/test/1.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-api/goods-web/api/brands/brands.go" beforeDir="false" afterPath="$PROJECT_DIR$/test-api/goods-web/api/brands/brands.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-service/goods_srv/test/1.go" beforeDir="false" afterPath="$PROJECT_DIR$/test-service/inventory_srv/test/1.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,12 +57,15 @@
   "keyToString": {
     "ASKED_ADD_EXTERNAL_FILES": "true",
     "DefaultGoTemplateProperty": "Go File",
+    "Go 构建.go build 1.go (1).executor": "Run",
     "Go 构建.go build 1.go.executor": "Run",
     "Go 构建.go build main.go (1).executor": "Run",
     "Go 构建.go build main.go.executor": "Run",
     "Go 构建.go build test-api/goods-web.executor": "Run",
     "Go 构建.go build test-api/user-web.executor": "Run",
     "Go 构建.go build test-service/goods_srv/test.executor": "Run",
+    "Go 构建.go build test-service/inventory_srv.executor": "Run",
+    "Go 构建.go build test-service/inventory_srv/model/main.executor": "Run",
     "Go 构建.go build test-service/user_srv.executor": "Run",
     "Go 测试.test-service/goods_srv/handler 中的 TestGoodsServer_CreateGoods.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
@@ -84,13 +98,13 @@
       <recent name="D:\go-learn\go_micro_service_test\test-api\goods-web\api\goods" />
     </key>
   </component>
-  <component name="RunManager" selected="Go 构建.go build main.go (1)">
-    <configuration name="go build 1.go" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Go 构建.go build 1.go (1)">
+    <configuration name="go build 1.go (1)" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
       <module name="go_micro_service_test" />
       <working_directory value="$PROJECT_DIR$/test-service" />
       <kind value="FILE" />
       <directory value="$PROJECT_DIR$" />
-      <filePath value="$PROJECT_DIR$/test-service/goods_srv/test/1.go" />
+      <filePath value="$PROJECT_DIR$/test-service/inventory_srv/test/1.go" />
       <method v="2" />
     </configuration>
     <configuration name="go build main.go (1)" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
@@ -109,21 +123,31 @@
       <filePath value="$PROJECT_DIR$/test-service/goods_srv/main.go" />
       <method v="2" />
     </configuration>
-    <configuration name="go build test-service/goods_srv/test" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
+    <configuration name="go build test-service/inventory_srv" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
       <module name="go_micro_service_test" />
       <working_directory value="$PROJECT_DIR$/test-service" />
       <kind value="PACKAGE" />
-      <package value="test-service/goods_srv/test" />
+      <package value="test-service/inventory_srv" />
       <directory value="$PROJECT_DIR$" />
-      <filePath value="$PROJECT_DIR$/test-service/goods_srv/test/1.go" />
+      <filePath value="$PROJECT_DIR$/test-service/inventory_srv/main.go" />
+      <method v="2" />
+    </configuration>
+    <configuration name="go build test-service/inventory_srv/model/main" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
+      <module name="go_micro_service_test" />
+      <working_directory value="$PROJECT_DIR$/test-service" />
+      <kind value="PACKAGE" />
+      <package value="test-service/inventory_srv/model/main" />
+      <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$/test-service/inventory_srv/model/main/main.go" />
       <method v="2" />
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Go 构建.go build 1.go (1)" />
+        <item itemvalue="Go 构建.go build test-service/inventory_srv" />
+        <item itemvalue="Go 构建.go build test-service/inventory_srv/model/main" />
         <item itemvalue="Go 构建.go build main.go (1)" />
         <item itemvalue="Go 构建.go build main.go" />
-        <item itemvalue="Go 构建.go build test-service/goods_srv/test" />
-        <item itemvalue="Go 构建.go build 1.go" />
       </list>
     </recent_temporary>
   </component>
@@ -148,7 +172,8 @@
     <MESSAGE value="电商web层1修改" />
     <MESSAGE value="电商web层2+修改" />
     <MESSAGE value="电商web层3+修改" />
-    <option name="LAST_COMMIT_MESSAGE" value="电商web层3+修改" />
+    <MESSAGE value="电商商品web层4+修改" />
+    <option name="LAST_COMMIT_MESSAGE" value="电商商品web层4+修改" />
   </component>
   <component name="VgoProject">
     <settings-migrated>true</settings-migrated>

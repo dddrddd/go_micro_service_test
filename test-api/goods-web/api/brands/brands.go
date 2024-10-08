@@ -107,23 +107,6 @@ func DeleteBrand(c *gin.Context) {
 	})
 }
 
-//func GetCategoryBrand(c *gin.Context) {
-//	id := c.Query("id")
-//	i, err := strconv.ParseInt(id, 10, 32)
-//	if err != nil {
-//		c.Status(http.StatusNotFound)
-//		return
-//	}
-//	rsp, err := global.GoodsSrvClient.GetCateGoryBrandList(context.Background(), &proto.CategoryInfoRequest{
-//		Id: int32(i),
-//	})
-//	if err != nil {
-//		api.HandleGrpcErrorToHttp(err, c)
-//		return
-//	}
-//	c.JSON(http.StatusOK, rsp.Data)
-//}
-
 func GetCategoryBrandList(c *gin.Context) {
 	id := c.Query("id")
 	i, err := strconv.ParseInt(id, 10, 32)
