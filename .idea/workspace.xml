@@ -4,26 +4,9 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d3b2fd96-b9ee-429c-bcd2-d7174ec17ba4" name="更改" comment="电商商品web层4+修改">
-      <change afterPath="$PROJECT_DIR$/test-service/inventory_srv/config-debug.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test-service/inventory_srv/config-pro.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test-service/inventory_srv/config/config.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test-service/inventory_srv/global/global.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test-service/inventory_srv/handler/inventory.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test-service/inventory_srv/initialize/config.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test-service/inventory_srv/initialize/db.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test-service/inventory_srv/initialize/logger.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test-service/inventory_srv/main.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test-service/inventory_srv/model/base.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test-service/inventory_srv/model/inventory.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test-service/inventory_srv/model/main/main.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test-service/inventory_srv/proto/inventory.pb.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test-service/inventory_srv/proto/inventory.proto" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test-service/inventory_srv/proto/inventory_grpc.pb.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test-service/inventory_srv/utils/addr.go" afterDir="false" />
+    <list default="true" id="d3b2fd96-b9ee-429c-bcd2-d7174ec17ba4" name="更改" comment="库存">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test-api/goods-web/api/brands/brands.go" beforeDir="false" afterPath="$PROJECT_DIR$/test-api/goods-web/api/brands/brands.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test-service/goods_srv/test/1.go" beforeDir="false" afterPath="$PROJECT_DIR$/test-service/inventory_srv/test/1.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-service/inventory_srv/handler/inventory.go" beforeDir="false" afterPath="$PROJECT_DIR$/test-service/inventory_srv/handler/inventory.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -76,7 +59,7 @@
     "go.import.settings.migrated": "true",
     "go.sdk.automatically.set": "true",
     "ignore.virus.scanning.warn.message": "true",
-    "last_opened_file_path": "D:/go-learn/go_micro_service_test",
+    "last_opened_file_path": "D:/HealthProject",
     "node.js.detected.package.eslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
@@ -173,7 +156,8 @@
     <MESSAGE value="电商web层2+修改" />
     <MESSAGE value="电商web层3+修改" />
     <MESSAGE value="电商商品web层4+修改" />
-    <option name="LAST_COMMIT_MESSAGE" value="电商商品web层4+修改" />
+    <MESSAGE value="库存" />
+    <option name="LAST_COMMIT_MESSAGE" value="库存" />
   </component>
   <component name="VgoProject">
     <settings-migrated>true</settings-migrated>
