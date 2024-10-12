@@ -1,3 +1,4 @@
 # go_micro_service_test
 
-本项目是基于grpc编写的微服务商城项目
+本项目是基于grpc编写的微服务商城项目,api层集成gin，service层集成gorm
+利用consul进行服务注册，利用nacos作为分布式配置中心
