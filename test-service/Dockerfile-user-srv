@@ -1,0 +1,19 @@
+FROM golang:alpine
+
+WORKDIR /api
+
+COPY go.mod go.sum ./
+
+RUN go mod download
+
+COPY ./user_srv ./user_srv
+
+WORKDIR /api/user_srv
+COPY ./user_srv/config-debug.yaml ./user_srv/
+COPY ./user_srv/config-pro.yaml ./user_srv/
+
+# 构建项目
+RUN go build -o user_srv .
+
+# 执行构建的二进制文件
+CMD ["./user_srv"]

@@ -4,9 +4,12 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d3b2fd96-b9ee-429c-bcd2-d7174ec17ba4" name="更改" comment="库存">
+    <list default="true" id="d3b2fd96-b9ee-429c-bcd2-d7174ec17ba4" name="更改" comment="1">
+      <change afterPath="$PROJECT_DIR$/test-api/Dockerfile-goods-web" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test-service/inventory_srv/handler/inventory.go" beforeDir="false" afterPath="$PROJECT_DIR$/test-service/inventory_srv/handler/inventory.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-service/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/test-service/go.mod" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-service/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/test-service/go.sum" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-service/user_srv/main.exe" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -17,6 +20,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Go File" />
+        <option value="Dockerfile" />
       </list>
     </option>
   </component>
@@ -36,41 +40,46 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "DefaultGoTemplateProperty": "Go File",
-    "Go 构建.go build 1.go (1).executor": "Run",
-    "Go 构建.go build 1.go.executor": "Run",
-    "Go 构建.go build main.go (1).executor": "Run",
-    "Go 构建.go build main.go.executor": "Run",
-    "Go 构建.go build test-api/goods-web.executor": "Run",
-    "Go 构建.go build test-api/user-web.executor": "Run",
-    "Go 构建.go build test-service/goods_srv/test.executor": "Run",
-    "Go 构建.go build test-service/inventory_srv.executor": "Run",
-    "Go 构建.go build test-service/inventory_srv/model/main.executor": "Run",
-    "Go 构建.go build test-service/user_srv.executor": "Run",
-    "Go 测试.test-service/goods_srv/handler 中的 TestGoodsServer_CreateGoods.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.go.formatter.settings.were.checked": "true",
-    "RunOnceActivity.go.migrated.go.modules.settings": "true",
-    "RunOnceActivity.go.modules.go.list.on.any.changes.was.set": "true",
-    "git-widget-placeholder": "master",
-    "go.import.settings.migrated": "true",
-    "go.sdk.automatically.set": "true",
-    "ignore.virus.scanning.warn.message": "true",
-    "last_opened_file_path": "D:/HealthProject",
-    "node.js.detected.package.eslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.lookFeel"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;DefaultGoTemplateProperty&quot;: &quot;Go File&quot;,
+    &quot;Go 构建.go build 1.go (1).executor&quot;: &quot;Run&quot;,
+    &quot;Go 构建.go build 1.go.executor&quot;: &quot;Run&quot;,
+    &quot;Go 构建.go build main.go (1).executor&quot;: &quot;Run&quot;,
+    &quot;Go 构建.go build main.go.executor&quot;: &quot;Run&quot;,
+    &quot;Go 构建.go build test-api/goods-web.executor&quot;: &quot;Run&quot;,
+    &quot;Go 构建.go build test-api/user-web.executor&quot;: &quot;Run&quot;,
+    &quot;Go 构建.go build test-service/goods_srv/test.executor&quot;: &quot;Run&quot;,
+    &quot;Go 构建.go build test-service/inventory_srv.executor&quot;: &quot;Run&quot;,
+    &quot;Go 构建.go build test-service/inventory_srv/model/main.executor&quot;: &quot;Run&quot;,
+    &quot;Go 构建.go build test-service/user_srv.executor&quot;: &quot;Run&quot;,
+    &quot;Go 测试.test-service/goods_srv/handler 中的 TestGoodsServer_CreateGoods.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.go.formatter.settings.were.checked&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.go.migrated.go.modules.settings&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.go.modules.go.list.on.any.changes.was.set&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowPanel.toolwindow.highlight.mappings&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowPanel.toolwindow.highlight.symlinks&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowPanel.toolwindow.show.date&quot;: &quot;false&quot;,
+    &quot;WebServerToolWindowPanel.toolwindow.show.permissions&quot;: &quot;false&quot;,
+    &quot;WebServerToolWindowPanel.toolwindow.show.size&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;go.import.settings.migrated&quot;: &quot;true&quot;,
+    &quot;go.sdk.automatically.set&quot;: &quot;true&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/HealthProject&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "mysql"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;mysql&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\go-learn\go_micro_service_test\test-api\user-web\utils" />
@@ -78,10 +87,11 @@
       <recent name="D:\go-learn\go_micro_service_test\test-api" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\go-learn\go_micro_service_test\test-api" />
       <recent name="D:\go-learn\go_micro_service_test\test-api\goods-web\api\goods" />
     </key>
   </component>
-  <component name="RunManager" selected="Go 构建.go build 1.go (1)">
+  <component name="RunManager" selected="Go 构建.go build main.go (1)">
     <configuration name="go build 1.go (1)" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
       <module name="go_micro_service_test" />
       <working_directory value="$PROJECT_DIR$/test-service" />
@@ -126,10 +136,10 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Go 构建.go build main.go (1)" />
         <item itemvalue="Go 构建.go build 1.go (1)" />
         <item itemvalue="Go 构建.go build test-service/inventory_srv" />
         <item itemvalue="Go 构建.go build test-service/inventory_srv/model/main" />
-        <item itemvalue="Go 构建.go build main.go (1)" />
         <item itemvalue="Go 构建.go build main.go" />
       </list>
     </recent_temporary>
@@ -146,6 +156,17 @@
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="电商服务2" />
@@ -157,7 +178,9 @@
     <MESSAGE value="电商web层3+修改" />
     <MESSAGE value="电商商品web层4+修改" />
     <MESSAGE value="库存" />
-    <option name="LAST_COMMIT_MESSAGE" value="库存" />
+    <MESSAGE value="库存2" />
+    <MESSAGE value="1" />
+    <option name="LAST_COMMIT_MESSAGE" value="1" />
   </component>
   <component name="VgoProject">
     <settings-migrated>true</settings-migrated>

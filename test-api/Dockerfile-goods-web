@@ -1,0 +1,19 @@
+FROM golang:alpine
+
+WORKDIR /api
+
+COPY go.mod go.sum ./
+
+RUN go mod download
+
+COPY ./goods-web ./goods-web
+
+WORKDIR /api/goods-web
+COPY ./goods-web/config-debug.yaml ./goods-web/
+COPY ./goods-web/config-pro.yaml ./goods-web/
+
+# 构建项目
+RUN go build -o goods_web .
+
+# 执行构建的二进制文件
+CMD ["./goods_web"]
