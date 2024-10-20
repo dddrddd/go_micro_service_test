@@ -1,0 +1,37 @@
+version: "3"
+
+services:
+  goods_srv:
+    image: goods_srv
+    container_name: goods_srv
+    ports:
+      - "8080:8080"
+
+  user_srv:
+    image: user_srv
+    container_name: user_srv
+    ports:
+      - "8090:8090"
+
+  inv_srv:
+    image: inv_srv
+    container_name: inv_srv
+    ports:
+      - "8099:8099"
+
+  goods-web:
+    image: goods-web
+    container_name: goods-web
+    ports:
+      - "8888:8888"
+    depends_on:
+      - goods_srv
+
+  user-web:
+    image: user-web
+    container_name: user-web
+    ports:
+      - "8890:8890"
+    depends_on:
+      - user_srv
+
