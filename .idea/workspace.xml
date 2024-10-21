@@ -4,12 +4,9 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d3b2fd96-b9ee-429c-bcd2-d7174ec17ba4" name="更改" comment="1">
-      <change afterPath="$PROJECT_DIR$/test-api/Dockerfile-goods-web" afterDir="false" />
+    <list default="true" id="d3b2fd96-b9ee-429c-bcd2-d7174ec17ba4" name="更改" comment="docker-compose">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test-service/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/test-service/go.mod" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test-service/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/test-service/go.sum" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test-service/user_srv/main.exe" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-service/Dockerfile-goods-srv" beforeDir="false" afterPath="$PROJECT_DIR$/test-service/Dockerfile-goods-srv" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -82,9 +79,10 @@
 }</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\go-learn\go_micro_service_test\test-service" />
+      <recent name="D:\go-learn\go_micro_service_test\test-api" />
       <recent name="D:\go-learn\go_micro_service_test\test-api\user-web\utils" />
       <recent name="D:\go-learn\go_micro_service_test\test-api\goods-web\proto" />
-      <recent name="D:\go-learn\go_micro_service_test\test-api" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\go-learn\go_micro_service_test\test-api" />
@@ -180,7 +178,9 @@
     <MESSAGE value="库存" />
     <MESSAGE value="库存2" />
     <MESSAGE value="1" />
-    <option name="LAST_COMMIT_MESSAGE" value="1" />
+    <MESSAGE value="docker" />
+    <MESSAGE value="docker-compose" />
+    <option name="LAST_COMMIT_MESSAGE" value="docker-compose" />
   </component>
   <component name="VgoProject">
     <settings-migrated>true</settings-migrated>

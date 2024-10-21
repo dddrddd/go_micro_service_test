@@ -1,5 +1,10 @@
-FROM golang:alpine
+FROM golang:alpine AS builder
 
+ENV GO111MODULE=on \
+    GOPROXY=https://goproxy.cn,direct \
+    CGO_ENABLED=0 \
+    GOOS=linux \
+    GOARCH=amd64
 WORKDIR /api
 
 COPY go.mod go.sum ./
@@ -13,7 +18,7 @@ COPY ./goods_srv/config-debug.yaml ./goods_srv/
 COPY ./goods_srv/config-pro.yaml ./goods_srv/
 
 # 构建项目
-RUN go build -o goods_srv .
+RUN go build -o goods-srv .
 
 # 执行构建的二进制文件
-CMD ["./goods_srv"]
+CMD ["./goods-srv"]

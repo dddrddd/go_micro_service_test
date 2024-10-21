@@ -13,7 +13,7 @@ COPY ./user_srv/config-debug.yaml ./user_srv/
 COPY ./user_srv/config-pro.yaml ./user_srv/
 
 # 构建项目
-RUN go build -o user_srv .
+RUN go build -o user-srv .
 
 # 执行构建的二进制文件
-CMD ["./user_srv"]
+CMD ["./user-srv"]

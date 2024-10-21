@@ -13,7 +13,7 @@ COPY ./inventory_srv/config-debug.yaml ./inventory_srv/
 COPY ./inventory_srv/config-pro.yaml ./inventory_srv/
 
 # 构建项目
-RUN go build -o inventory_srv .
+RUN go build -o inventory-srv .
 
 # 执行构建的二进制文件
-CMD ["./inventory_srv"]
+CMD ["./inventory-srv"]
